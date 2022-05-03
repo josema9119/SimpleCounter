@@ -1,24 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import SecondCounter from "./secondcounter.js";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
+	const logo = <i className="fas fa-clock"></i>;
+	const [timer, setTimer] = useState(0);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setTimer((timer) => timer + 1);
+		}, 1000);
+		return () => clearInterval(interval);
+	}, []);
+
 	return (
-		<div>
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="row m-0 vh-100 justify-content-center align-items-center">
+			<div
+				style={{ width: "6rem", height: "7.5rem", borderRadius: 75 }}
+				className="bg-dark text-white text-center m-3 pt-4">
+				<SecondCounter seconds={logo} />
+			</div>
+			<div
+				style={{ width: "6rem", height: "7.5rem", borderRadius: 75 }}
+				className="bg-dark text-white text-center m-3 pt-4">
+				<SecondCounter num={Math.floor((timer / 100000) % 10)} />
+			</div>
+			<div
+				style={{ width: "6rem", height: "7.5rem", borderRadius: 75 }}
+				className="bg-dark text-white text-center m-3 pt-4">
+				<SecondCounter num={Math.floor((timer / 10000) % 10)} />
+			</div>
+			<div
+				style={{ width: "6rem", height: "7.5rem", borderRadius: 75 }}
+				className="bg-dark text-white text-center m-3 pt-4">
+				<SecondCounter num={Math.floor((timer / 1000) % 10)} />
+			</div>
+			<div
+				style={{ width: "6rem", height: "7.5rem", borderRadius: 75 }}
+				className="bg-dark text-white text-center m-3 pt-4">
+				<SecondCounter num={Math.floor((timer / 100) % 10)} />
+			</div>
+			<div
+				style={{ width: "6rem", height: "7.5rem", borderRadius: 75 }}
+				className="bg-dark text-white text-center m-3 pt-4">
+				<SecondCounter num={Math.floor((timer / 10) % 10)} />
+			</div>
+			<div
+				style={{ width: "6rem", height: "7.5rem", borderRadius: 75 }}
+				className="bg-dark text-white text-center m-3 pt-4">
+				<SecondCounter num={Math.floor((timer / 1) % 10)} />
+			</div>
 		</div>
 	);
 };
