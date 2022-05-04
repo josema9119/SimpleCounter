@@ -17,7 +17,7 @@ const Home = () => {
 			<div
 				style={{ width: "6rem", height: "7.5rem", borderRadius: 75 }}
 				className="bg-success text-white text-center m-3 pt-4">
-				<SecondCounter seconds={clock} />
+				<SecondCounter logo={clock} />
 			</div>
 			<div
 				style={{ width: "6rem", height: "7.5rem", borderRadius: 75 }}
