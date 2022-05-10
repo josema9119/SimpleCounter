@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SecondCounter from "./secondcounter.js";
 
 const Home = () => {
-	const clock = <i class="far fa-clock"></i>;
+	const clock = <i className="far fa-clock"></i>;
 	const [timer, setTimer] = useState(0);
 
 	useEffect(() => {
